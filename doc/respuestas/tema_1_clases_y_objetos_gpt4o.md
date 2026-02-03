@@ -270,3 +270,85 @@ double calculaDistanciaAOrigen(Punto *p) {
 En este enfoque, el struct contiene solo los datos, mientras que la función recibe explícitamente un puntero al struct. La referencia this desaparece y se sustituye por un parámetro explícito que representa al objeto sobre el que se opera.
 
 Este patrón muestra que la programación orientada a objetos puede entenderse como una evolución organizada de técnicas ya existentes en lenguajes procedimentales como C, donde el programador debe gestionar explícitamente aspectos que en lenguajes orientados a objetos están integrados en el propio lenguaje.
+
+## Completamos la documentación luego de la clase teórica
+(1)
+
+**Abstracción** Olvidar detalles --> Trata temas complejos y facilita los cambios en el código
+
+**Encapsulación** Permite unir el estado y el comportamiento
+
+**Herencia** Establecer jerarquías 
+Ejemplo:
+
+                Animal {dormir}
+{ladrar} Perro                  Gato {maullar}
+
+Animal es la clase base que proporciona comportamientos compartidos como dormir. Las clases Perro y Gato heredan de Animal y añaden comportamientos específicos, por ejemplo ladrar y maullar, respectivamente.
+
+**Polimorfismo** Misma función, distintas formas / o implementaciones
+
+El polimorfismo permite que una misma operación (por ejemplo, dormir) se comporte de diferentes maneras según el tipo concreto del objeto que la ejecuta
+
+Ejemplo:
+
+¿Cómo duerme el perro?      ¿Cómo duerme el gato?
+
+(2)
+
+Python & JavaScrript --> Dinámicos
+
+Java, C# --> Tienen GC (Recolector de basura)
+    - Compilados
+    - Comprobación estática de tipos
+
+C++ --> No tiene recolector de basura
+
+**Recolector de basura** --> Componente del runtime que libera automáticamente la memoria ocupada por objectos que ya no son accesibles desde el programa.
+
+**Objetivos GC**
+    - Evitar fugas de memoria
+    - Evitar errores por liberaciones manuales
+
+(3)
+
+**Ensamblador**
+    - Secuencia
+    - Salto arbitrario(**GOTO**) --> Salta si resultado != 0
+
+**Estructurado / Procedural / Imperativa**
+    - Estructuras de control
+        Condicional (if)
+        Iterativa (while, for, do while)  
+        Sin GOTO
+
+**Modular**
+    - Librerias, paquetes, módulos
+    - Agrupar código para facilitar su uso por otros programas o módulos
+
+(4)
+
+**Identidad** "equivalente a decir la direccion de memoria"
+    - Cada objeto tiene idenetidad
+
+**Estado** --> Atributos, lo que en los Structs eran campos
+
+Structs en C = Una clase en Java
+
+**Comportamiento** --> Métodos, son las funciones que todos los objetos de esa clase pueeden realizar
+
+    Animal a;          Animal a;
+                --> 
+    dormir(a);         a.dormir();
+
+(5)
+
+**Clase** --> Molde para crear instancias durante la ejecucción.
+
+Define la estructura del estado y el comportamiento
+                           =             =
+                           atributos    métodos
+
+**Objeto** --> Entidad concreta creada a partir de una clase.
+
+
