@@ -352,3 +352,55 @@ Define la estructura del estado y el comportamiento
 **Objeto** --> Entidad concreta creada a partir de una clase.
 
 
+## Completamos la documentación luego de la clase teórica semana 09/02/26
+
+**Tema 1**
+
+6) **¿Dónde se almacenan en memoria los objetos? ¿Es igual en todos los lenguajes? ¿Qué es la recolección de basura**?  
+
+Se almacenan en el Heap, en la mayoria de los lenguajes. Otros permiten Heap y Stack
+
+**Ventajas Uso Memoria Dinámica**
+
+    - Reserva dinamicamente , el tamaño se decide en ejecucción.
+    - Lo que está en el heap, vive más allá que el método o función donde se ha creado.
+
+**Desventajas**
+    - Hay que liberar la memoria cuando ya no se necesite.
+        * Manual --> Difícil de hacer.
+        * AuTOMÁTICA --> Por ejemplo con un recolector de basura.
+
+**Definición Recolector de Basura**
+Mecanismo automático que gestiona la memoria, detecta objetos que ya no son accesibles desde el programa, liberando automáticamente la memoria.
+
+9) **¿Cuál es el punto de entrada en un programa en Java? ¿Qué es `static` y para qué vale? ¿Sólo se emplea para ese método `main`? ¿Para qué se combina con `final`?**
+
+¿Static? --> Dice que el atributo o método pertenece a la clase, no a una instancia concreta
+
+    - No se necesita un objeto para usarlos desde fuera se usa el nombre de la clase.
+    - No existe this
+    - NO se puede usar desde un método static nada que no sea static.
+
+Importante **NO DEBEMOS ABUSAR DE LA PALABRA RESERVADA STATIC**
+
+11) **En el código anterior de la clase `Punto` ¿Qué es `new`? ¿Qué es un constructor? Pon un ejemplo de constructor en una clase `Empleado` que tenga DNI, nombre y apellidos**
+
+**New** --> Reserva espacio en el Heap, con ese mismo objeto, invoco al constructor con this para inicializar  el this desde dentro (Es una expresión, puedo asignarla a una variable, o usarla directamente en línea)
+
+12) **¿Qué es la referencia `this`? ¿Se llama igual en todos los lenguajes? Pon un ejemplo del uso de `this` en la clase `Punto`**
+ 
+    - Referencia al objeto actual
+    - Sirve para desambiguar o aclarar
+    - No está disponible en métodos static
+    - En otros lenguajes pueden tener otro nombre (self en Python)
+
+13) **Añade ahora otro nuevo método que se llame `distanciaA`, que reciba un `Punto` como parámetro y calcule la distancia entre `this` y el punto proporcionado**
+
+Primitivos --> Por valor
+
+Objetos --> Por copia de la referencia
+
+    - Primitivo --> byte, chart, int, long, float, double, boolean, reference...
+
+
+
