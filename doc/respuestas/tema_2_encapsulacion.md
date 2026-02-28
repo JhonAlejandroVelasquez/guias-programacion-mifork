@@ -369,3 +369,69 @@ public enum Mes {
     }
 }
 ```
+
+##Apuntes a mayores clase teórica 3 - 23/02/2026
+
+**Tema 2 - Encapsulación**
+
+1) Encapsulación tiene que ver con **protección**
+    - Evita estados no válidos de mis objetos.
+    - Evito dependencias desde fuera que no quiero.
+
+He juntado estado y comportamiento en un artefacto **(la clase)**, y ahora puedo ocultar ciertas
+partes del exterior.
+
+2) **Interfaz pública**
+Los miembros (métodos, atributos...) que se ven desde fuera, es decir, los que no están ocultos.
+
+3) La **interfaz pública**➜ si se cambia, tiene más consecuencias que cualquier cambio en la parte oculta.
+
+4) **Invariantes de clase**➜ Condiciones que los objetos de esa clase deben cumplir patrra ser válidos y durante toda la vida del objeto.
+
+Ejemplos:
+    - Cuenta bancaria debe tener siempre saldo positivo
+    - Persona debe tener edad >= 0
+    - Rectángulo debe tener ancho y largo > 0
+
+6) En Java
+    - **public** ➜ Clases, atributos y métodos
+    - **private** ➜ Clases internas (no los estamos viendo), atributos y métodos
+
+7) En Java
+    - **Protected**➜ Solo se ve desde **subclases**
+    - **Package-private**➜ o sin modificador, solo se ve desde el paquete
+
+8) (a) está oculto para códigos de otras clases
+
+9)  **getter**➜ Obtener valor
+    **setter**➜ Modificar valor
+
+    getter y setter permiten dar acceso a atributos privados para obtener sus valores o cambiarlos.
+
+10) No, esto no es ciberseguridad, es facilitar una programación con menos bugs
+
+11) **Miembro de clase**➜No está asociado a ninguna instancia, es compartido por todas las instancias, en los métodos no hay this
+
+    **Miembros de instancia**➜ Está asociado a cada instancia, no son compartidos
+
+12) **Tiene sentido hacer un constructor privado**
+    Sí, a veces.
+        - Un constructor auxiliar oculto llamados desde otros constructores públicos
+        - Cuando prefiero usar métodos factoria (método que crea y devuelve objetos en lugar de usar new directamente)
+        - Cuando quiero controlar el nº de instancias
+
+13) Static ➜ Miembro de clase
+
+14) Método factoria ➜ Crear instancias de la clase, es public y static
+
+    Ejemplo:
+
+    ```java
+    public static Punto puntoredondeado(double x, double y) {
+        return new Punto(Math.round(x), Math.round(y))
+    }
+    ```
+
+
+
+
