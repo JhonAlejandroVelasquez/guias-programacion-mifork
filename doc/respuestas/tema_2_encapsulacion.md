@@ -428,9 +428,135 @@ Ejemplos:
 
     ```java
     public static Punto puntoredondeado(double x, double y) {
-        return new Punto(Math.round(x), Math.round(y))
+        return new Punto(Math.round(x), Math.round(y));
     }
     ```
+
+16) Si los hago públicos
+    - Garantizar la invariante de clase
+    - Para poder garantizar la invariante de clase
+    - Para poder cambiar la representación interna
+
+**Convención es:**
+    - Atributos siempre privados y emplear métodos de acceso
+
+
+17) **Inmutable**➜ Su estado no cambia (no se puede modificar)
+
+    **Modificador**➜ Cualquier método que cambia el estado interno, por ejemplo un setter
+
+    Las **clases inmutables** tienen ventajas:
+        - No hacer clases mutables como 1ª opción
+
+18) No
+
+19) String es inmutable
+
+##Apuntes a mayores clase teórica 4 - 03/03/2026
+
+19) String Builder
+Ejemplos:
+
+    - elTitulo.setCharAt(0, "A");  //Reemplaza el caracter 0 por A (sólo un caracter)
+
+    - elTitulo.substring(0,7); //Devuelve una nueva cadena con los caracteres desde la posicion 0 hasta la 6
+
+    -elTitulo.append("mación"); //Añade ese texto al final del contenido actual
+
+    Ejemplo append:
+
+```java
+    StringBuilder elTitulo = new StringBuilder("Progra"); // texto que estaba
+    elTitulo.append("mación");                            // texto que se agrega
+
+    System.out.println(elTitulo); // Programación
+```
+
+20) Comparando objetos
+
+(A) Por **Identidad** Mismo objeto en memoria, se usa con ==
+    Ej: Si tienen el mismo valor de memoria el obj1 y el obj2
+
+(B) Por **Contenido** Mismo estado (valor de sus atributos)
+
+    Ej: if(obj1.equals(obj2))  // Devuelve verdadero o falso
+
+```java
+String S1 = new String("hola");
+
+String S1 = new String("hola");
+
+if(S1 == S2){
+    // Devuelve falso, ya que no están hablando del mismo objeto en memoria
+}
+
+
+
+if(S1.equals(S2)) {
+    //Devuelve true
+}
+
+```
+
+**equals**➜ Por defecto hace comparación por **identidad (==)**, excepto en clases concretas donde no lo implementa, una comparación por **contenido**, por ejemplo en String.
+
+**Se Recomendación** ➜ Usar .equals para comparar el contenido de un String
+
+21) **Wrapper**
+    - Ocurren en lenguajes que tienen tipos primitivos (En java p.e)
+    - Otros lenguajes no tienen tipos primitivos (Python)
+    - int <=> Integer | float <=> Float |   char <=> Character
+
+    **Ventajas**
+    - Añadirle comportamiento
+    - Poder usarlos en contextos donde se necesitan objetos List<T>    
+
+
+**Autoboxing/** ➜ (Meter el entero en el Integer)
+
+Ej:
+
+Integer i = 7;
+Integer i = new Integer(7); // Esta línea es lo que haría el compilador por nosotros de forma automática
+
+**Ubboxing**
+
+int j = i;
+
+int j = i.intValue(); // Esta línea es lo que haría el compilador por nosotros de forma automática
+
+22) **Enumerado** ➜ Es un tipo con un número determinado de valores posibles
+
+    - En Java, un enumerado es una **clase**, cuyas instancias son finitas, conocidas de antemano, tienen un nombre cada una (valor del enumerado)
+
+    Ejemplo:
+
+```java
+    public enum TipoIVA(){
+        GENERAL(1.21),
+        REDUCIDO(1.10);
+
+        private double factor;
+
+        public double aplicar(double cant){
+            //return switch(this){
+
+                //case GENERAL -> return cant * 1.21;
+                //case REDUCIDO -> return cant * 1.10;
+
+                //De forma más practica podemos hacer lo mismo que el switch de esta manera.
+
+                return cant * this.factor
+            //}
+        }
+
+        private TipoIVA(double factor){
+            this.factor = factor;
+        }
+    }
+```
+
+**FIN TEMA 2 - ENCAPSULACIÓN**
 
 
 
