@@ -435,3 +435,101 @@ try {
 }
 ```
 
+*Notas de clase*
+
+2) **Excepción** ➜ Surge en situaciones  atípicas.
+
+    - Cuando implementamos ➜ Nos permite indicar más claramente el error.
+
+    - Cuando llamamos ➜ Me facilita reparar la lógica normal de la reacción o manejo de la situación
+
+6) Sí, suelen ser objetos en Java.
+
+    **Ventajas** ➜ Tienen métodos y estados. Puedo crear mis propias clases y excepciones
+
+7) (a) Un mensaje (getMessage())
+
+    (b) La traza de la pila "getStackTrace" "PrintStackTrace"
+
+    (c) Opcionalmente, la "causa" es otra excepción que es la verdadera causa
+
+
+8) Sí, se pueden tener más de uno 
+
+```java
+    try {
+        ...
+    } catch (AccesDeniedException) {
+        ...
+    } catch (IOException) {
+
+    }
+```
+
+    - Sólo se ejecuta uno
+
+    - Se va comprobando por oden hasta el primero que encaje
+    
+    - Se deben poner del más específico al más general, porque o sino, los catch, para excepciones más          específicas, no se ejecutarán
+
+(9)
+
+**finally** ➜ Se ejecuta siempre y cuando entre al try
+
+(10)
+
+Sí, pueden ir sin catch (el finally)
+
+    - Se ejecuta, puesto que es finally
+    - Si hubo excepción, como no tenemos catch, se propaga.
+
+(11)
+
+**Excepciones Controlodas** ➜ Obligan a usar try - catch / throws
+
+    - IOException (Ejemplo: AccessDeniedException)
+
+    - Otras
+
+**No Controladas**
+ - RunTimeException
+
+ Ejemplos:
+
+    - IlegalArgumentException
+    - NullPointerException
+    - ArrayIndexOutOfBoundsException
+
+(12) y (13)
+
+public String leerFichero(Path p) throws IOException
+    try {
+        ... = Files.readAllBytes
+    } finally {
+        ...
+    }
+
+(14)
+
+    - Por poder, podemos pero el compilador no va a obligar al bloque try - catch
+    - No es habitual
+    - A veces se ponen para documentación
+
+(15)
+
+Se usan las controladas cuando el error es esperable y el llamador puede recuparse
+
+IOException ➜ Operaciones de E/S
+
+- Las no controladas se usan para errores de programación
+- No en todos los lenguajes existen ambas opciones
+- Más habituales ➜ No controladas
+
+(16)
+
+Sí, tienen sentido en algunos casos
+
+    - Relanzar la misma excepción 
+    - Envolver en otra excepción nueva (causa)
+
+
