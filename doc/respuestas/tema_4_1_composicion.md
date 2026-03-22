@@ -545,3 +545,43 @@ eliminarlo, habría que dejarla a `null` o reasignarla correctamente.
 Esa sincronización debe centralizarse bien para evitar estados
 inconsistentes, como un profesor que apunte a un departamento que no lo
 contiene en su colección.
+
+
+**Notas de clase**
+
+3)	**Multiplicidad** de A y B (p.ej: entre Línea y Punto)
+
+
+Linea					Punto
+P1:Punto	(00..*)		x: double
+P2:Punto	(2..2)		y: double
+
+ - 1 línea se relaciona con 2 puntos y como máximo con 2 puntos
+ - 1 punto se relaciona como mínimo con 0 Líneas y como máximo con muchas líneas
+
+ 4)	**Composición fuerte VS Composición débil**
+	
+	**Fuerte** ➜ El contenedor (p.ej: línea) es el que crea los objetos que contiene (p.ej: punto) y estos no viven más allá del contenedor
+
+		➜ El ciclo de vida del contenido está vinculado al contenedor
+
+	**Débil** ➜ El contenedor y contenido tienen ciclos de vida independientes (p.ej: Los objetos Punto pueden vivir sin estar en objetos Linea)
+
+
+	UML:
+	 - Composición Propiamente (fuerte)
+	 - Asociación o agregación (débil)
+	 - Usamos rombos para expresar que el contenedor es basicamente un contenedor y poco más
+
+
+7) En Java, la vida de Punto termina cuando es inaccesible, y en el ejemplo ocurre cuando Línea deja de serlo a su vez. Por tanto, cuando Línea es "basura", también lo serán sus puntos, y serán eliminados de memoria por el **recolector de basura**
+
+8)	- Hay 2 composiciones débiles
+	- No se expone el array al exterior (imposible garantizar invariante de clase)
+	- En los méetodos que gestionan el departamento se controla que no se viole la invariante de clase
+
+9) Con List<Profesor>
+
+	- No cambia la interfaz gráfica
+	- Es más fácil implementar algunos métodos, delegando en métodos de List
+	- Si se devuelve, hay que devolver una copia, para proteger la invariante de clase.
