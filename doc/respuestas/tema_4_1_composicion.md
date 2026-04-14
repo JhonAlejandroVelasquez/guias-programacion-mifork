@@ -585,3 +585,30 @@ P2:Punto	(2..2)		y: double
 	- No cambia la interfaz gráfica
 	- Es más fácil implementar algunos métodos, delegando en métodos de List
 	- Si se devuelve, hay que devolver una copia, para proteger la invariante de clase.
+
+10)	Composicion reflexiva o recursiva
+
+-----------------
+Persona				0..1 
+-----------------			madre		
+					0..*
+-----------------
+
+11)	Composiciones bidireccionales
+
+----------------------										----------------------
+Departamento												Profesor
+----------------------										----------------------
+List<Profesor>profesores									Departamento
+----------------------										----------------------
+															Set Departamento (Dept = d)
+add Profesor(Profesor p) {									getDepartamento()
+	// Aquí actualizamos el dpto del profesor
+}
+
+
+Las bidireccionales exigen programar cuidadosamente para mantener la consistencia
+
+Por ejemplo: Si añado a un profesor al departamento, debo actualizar la referencia al Departamento desde Profesor
+
+Fin tema 4_1 Composicion
