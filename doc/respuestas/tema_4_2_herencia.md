@@ -382,3 +382,47 @@ class Trabajador {
     }
 }
 ```
+
+
+**Apuntes Clase Teórica**
+
+Composicion ➜ "Tiene un // tiene varios"
+
+Herencia ➜ "es un"
+
+1)  Compatibilidad de tipos:
+    Soldado S = new Artillero("Pepe");
+
+Herencia de estado (atributos) y comportamiento (Métodos)
+
+2)  Se ejecuta un constructor de cada clase, en orden de arriba a abajo
+
+public  Artillero(int numCohetes, String nombre) {
+    Super(nombre); 
+    this.numCohetes = numCohetes
+}
+
+3)  Heap:
+
+Artillero               Artillero           Zapador
+---------               ---------           ---------
+nombre;                 nombre;             nombre;
+numCohetes;             numCohetes;         numMinas;
+
+
+En el extends al declarar nuevos atributos, solo se ponen los atributos que no sean comunes a las otras clases.
+    Ej: String nombre //No se pone
+        int numCohetes // Sí se pone ya que no es general de todas las clases
+
+5)  Sí, puedo tener una referencia de un supertipo a un subtipo
+
+    Medico medico = (Medico) Soldado //downcasting explícito
+
+    Soldado soldado = new Artillero ("Juan", 10);
+    //upcasting, es implicito (automático)
+
+    if(soldado instanceof Artillero) {...}
+
+   Instanceof ➜ Permite comprobar en tiempo de ejecucción si soldado es una instancia de Artillero
+
+    6)  Protected ➜ Permite que una clase pueda ser accedida por una subclase aún teniendo un atributo en privado. 
