@@ -398,3 +398,50 @@ public class Wildcards {
 En el método de suma, la lista puede ser de `Integer`, `Double` o cualquier otro subtipo de `Number`, porque sólo se necesita leer. En el método que añade enteros, la lista puede ser de `Integer`, `Number` u `Object`, porque lo que interesa es poder insertar valores enteros de forma segura.
 
 Esta distinción evita muchos problemas de tipos y hace que los métodos genéricos sean más reutilizables. Los wildcards permiten describir con bastante precisión cómo se va a usar una colección, sin tener que fijar un único tipo exacto cuando no hace falta.
+
+
+## Apuntes Clase Relevantes
+
+12) ¿String [] es un Object []?
+
+    String [] miarrayS = {"A", "B"};
+    Object [] miarrayO = miarrayS;
+
+
+    Stack           Heap
+    miarrays
+    miarrayO        String []
+
+    miarrayO[O] = new Empleado();
+
+
+    List<String>  NO ES TIPO COMPATIBLE con List<Object>
+
+    COMPILADOR       => List<String> milistas = ...
+    LOS GENÉRICOS    => LIST<Object> milistaO = miListaS;
+    SON INVARIANTES  => milistaO.add(new empleado())
+
+13) List<String>mi lista    <?>
+    List <?> miLista        <?> super Number>
+    List <? Super Number>   <?> extends Number>
+    List<? extends Number>
+
+
+                                        Object
+
+                                        Number
+
+                                Double              Integer
+
+Punto <T extends Number> 
+
+Number media (List <? extends Number > Number)
+
+rellenarConElementos(List <? super.Number>Lista) {
+    Number n = ...;
+    list.add(n);
+                    lista.get()? -> Object
+    numeros.get(o) -> Numbers
+    numeros.add (num number) // Da error de compilación
+}
+
